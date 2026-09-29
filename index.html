@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Momo ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #4a2028;
+}
+
+.container {
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.heart {
+    font-size: 75px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    background: #ff4f70;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.letter {
+    display: none;
+    background: rgba(255,255,255,0.94);
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    text-align: left;
+    line-height: 1.7;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter h2 {
+    text-align: center;
+    color: #ff4f70;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: float 5s linear forwards;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="intro">
+        <div class="heart">❤️</div>
+
+        <h1>I'm Sorry, Momo 🥺</h1>
+
+        <p class="subtitle">
+            I made something small for the person<br>
+            who means a lot to me.
+        </p>
+
+        <button onclick="openLetter()">
+            Open this, please 💌
+        </button>
+    </div>
+
+    <div class="letter" id="letter">
+
+        <h2>For My Momo ❤️</h2>
+
+        <p>
+            Momo, I'm really sorry. 🥺
+        </p>
+
+        <p>
+            I know sometimes I make mistakes, say things I shouldn't,
+            or make things harder than they need to be. But one thing
+            I never want you to doubt is how much I love you.
+        </p>
+
+        <p>
+            You are genuinely one of the most special people in my life.
+            Your smile, your little habits, your way of talking,
+            even the smallest things about you have become so precious
+            to me.
+        </p>
+
+        <p>
+            I don't want a silly mistake or a bad moment to become
+            bigger than what we have. I just want you to know that
+            I'm sorry, I love you, and I care about you more than
+            I sometimes know how to express.
+        </p>
+
+        <p>
+            I'm not asking you to forget everything instantly.
+            I just hope you can forgive me when you're ready. ❤️
+        </p>
+
+        <p>
+            And if I had to choose again, after knowing everything,
+            I'd still choose you.
+        </p>
+
+        <p class="signature">
+            I love you, Momo. ❤️<br>
+            Always yours, Ammu 🫶
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+
+    for (let i = 0; i < 25; i++) {
+        setTimeout(createHeart, i * 100);
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💗";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+</script>
+
+</body>
+</html>
